@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Employee Review System</title>
+        <script
+            src="https://kit.fontawesome.com/6994f09273.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+    <body>
+        <div class="pseudo-body">
+            <div class="container">
+                <div class="error-div"></div>
+
+                <div class="attr">
+                    <i class="fa fa-code"></i>
+                    <h4 class="author">Mayur Kakade</h4>
+                    <h4 class="author">A Coding Ninjas Project</h4>
+                </div>
+
+                <div class="formBx">
+                    <div class="form signinForm">
+                        <form autocomplete="off">
+                            <h3>Sign In</h3>
+                            <p class="header-hint">
+                                Don't have an account?
+                                <a onclick="signup()">Sign up</a>
+                            </p>
+                            <div class="input-container text">
+                                <input
+                                    type="text"
+                                    name="email_login"
+                                    placeholder="email"
+                                    autocomplete="off" />
+                            </div>
+
+                            <div class="input-container text">
+                                <input
+                                    type="password"
+                                    name="password_login"
+                                    placeholder="Password"
+                                    autocomplete="off" />
+                            </div>
+
+                            <div class="input-container submit">
+                                <input
+                                    type="submit"
+                                    name="submit_login"
+                                    value="Login" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form signupForm">
+                        <form autocomplete="nope">
+                            <p class="header-hint">START FOR FREE</p>
+                            <h3>Create new account</h3>
+                            <p class="header-hint">
+                                Already A Member?
+                                <a onclick="login()">Log In</a>
+                            </p>
+                            <div class="input-container span-input-container">
+                                <div class="icon-input">
+                                    <i class="fa fa-user input-icon"></i>
+                                    <input
+                                        type="text"
+                                        name="firstname"
+                                        placeholder="First name"
+                                        autocomplete="nope" />
+                                </div>
+                                <div class="icon-input">
+                                    <i class="fa fa-user input-icon"></i>
+                                    <input
+                                        type="text"
+                                        name="lastname"
+                                        placeholder="Last name"
+                                        autocomplete="nope" />
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <div class="icon-input">
+                                    <i class="fa fa-envelope input-icon"></i>
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        placeholder="Email Address"
+                                        autocomplete="nope" />
+                                </div>
+                            </div>
+
+                            <div class="input-container">
+                                <div class="icon-input">
+                                    <i class="fa fa-key input-icon"></i>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        autocomplete="nope" />
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <div class="icon-input">
+                                    <i class="fa fa-key input-icon"></i>
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirm Password"
+                                        autocomplete="nope" />
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <input
+                                    type="submit"
+                                    name="registerUser"
+                                    value="Register" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/scripts/login.js"></script>
+    </body>
+</html>

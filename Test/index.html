@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin</title>
+        <script
+            src="https://kit.fontawesome.com/6994f09273.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="pseudo-container">
+            <nav class="header">
+                <div class="input-container">
+                    <div class="icon-input">
+                        <i class="fa fa-search input-icon"></i>
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Search..."
+                            autocomplete="nope" />
+                    </div>
+
+                    <div class="right-nav">
+                        <div class="input-container stick-right">
+                            <i class="fa fa-plus input-icon"></i>
+                            <input
+                                type="submit"
+                                name="create-user"
+                                value="CREATE EMPLOYEES" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="input-div">
+                <div class="users">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">Employees</h5>
+                    </div>
+                    <div class="user-list">
+                        <div class="user-card" onclick="userClicked()">
+                            <h5 class="user-name">Mayur Kakade</h5>
+                        </div>
+
+                        <div class="user-card" onclick="userClicked()">
+                            <h5 class="user-name">Omkar Kakade</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="user-reviews" class="user-reviews">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">Add Review</h5>
+                    </div>
+                    <textarea
+                        class="review-input"
+                        type="text"
+                        name="add-review-textarea"
+                        id="review-input"></textarea>
+
+                    <div class="input-container">
+                        <i class="fa fa-plus input-icon"></i>
+                        <input
+                            type="submit"
+                            name="add-review"
+                            value="ADD REVIEW"
+                            id="submit-review" />
+                    </div>
+                </div>
+
+                <div id="feedback-input" class="feedback-on-review">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">Add Feedback</h5>
+                    </div>
+                    <textarea
+                        class="review-input"
+                        type="text"
+                        name="add-review-textarea"
+                        id="review"></textarea>
+
+                    <div class="input-container">
+                        <i class="fa fa-plus input-icon"></i>
+                        <input
+                            type="submit"
+                            name="add-review"
+                            value="ADD FEEDBACK" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-list">
+                <div class="user-header">
+                    <h5 class="user-header-h5 user-name">Reviews</h5>
+                </div>
+                <div class="review-card">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name text-on-light">
+                            Employee name
+                        </h5>
+                        <p class="user-header-h5 user-name text-on-light">
+                            Review text goes here. This is sample text review as
+                            I am not adding lorem ipsum.Review text goes here.
+                            This is sample text review as I am not adding lorem
+                            ipsum.
+                        </p>
+                        <div class="feedback-status">
+                            <i class="fa fa-plus input-icon-small"></i>
+                            <input
+                                id="add-feedback-button"
+                                class="feedback-button"
+                                type="button"
+                                onclick="onFeedbackButtonClicked()"
+                                value="Add Feedback" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Tilt Neon", cursive;
+}
+
+body {
+    padding: 64px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pseudo-body {
+    box-shadow: 0 0 100px -30px #555;
+    border-radius: 24px;
+    background: url("/images/login-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #bbb;
+    display: block;
+}
+
+.container {
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 85vh;
+    padding: 32px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+form h3 {
+    color: #eee;
+    font-size: xxx-large;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.signinForm {
+    display: none;
+}
+
+.input-container {
+    width: 55%;
+    display: flex;
+}
+
+.input-container input {
+    color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #333333;
+    border: 0px;
+    flex: 1;
+    padding-right: 64px;
+}
+
+.input-container input[type="submit"] {
+    cursor: pointer;
+    background: rgb(0, 102, 255);
+}
+
+.icon-input {
+    flex: 1;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.icon-input input {
+    width: 100%;
+    padding-right: 64px;
+}
+
+.span-input-container input:first-child {
+    margin-right: 20px;
+}
+
+.span-input-container div:first-child {
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .span-input-container input {
+        width: 100%;
+    }
+
+    .span-input-container div {
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+        display: block;
+    }
+
+    .container {
+        height: 100vh;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .pseudo-body {
+        border-radius: 0;
+    }
+
+    .container {
+        border-radius: 0;
+    }
+}
+.input-icon {
+    position: absolute;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 18px;
+    right: 0;
+}
+
+.header-hint {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    /* margin-top: 64px; */
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: #cacaca;
+    cursor: pointer;
+}
+.attr {
+    color: white;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+}
+
+.attr i {
+    display: inline-block;
+}
+
+.error {
+    color: red;
+}
