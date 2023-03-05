@@ -180,7 +180,7 @@ a:hover {
 
 .users {
     height: 50vh;
-    width: 48%;
+    width: 35%;
     background-color: #002233;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -192,7 +192,7 @@ a:hover {
 .user-reviews,
 .feedback-on-review {
     height: 50vh;
-    width: 48%;
+    width: 60%;
     background-color: #122033;
     margin: 12px;
     border-radius: 18px;

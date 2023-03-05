@@ -17,3 +17,22 @@ function onFeedbackButtonClicked() {
     reviewInputDiv.style.display = "none";
     feedbackInputDiv.style.display = "inline-block";
 }
+
+const userCards = document.querySelectorAll(".user-card");
+const contextMenu = document.querySelector(".contextmenu");
+
+userCards.forEach(card => {
+    card.addEventListener("contextmenu", event => {
+        event.preventDefault();
+        const userId = event.target.dataset.userId;
+        console.log(userId);
+        contextMenu.style.top = `${event.pageY}px`;
+        contextMenu.style.left = `${event.pageX}px`;
+        contextMenu.classList.add("active");
+    });
+});
+
+window.addEventListener("click", function (event) {
+    let contextmenu = document.querySelector(".contextmenu");
+    contextmenu.classList.remove("active");
+});

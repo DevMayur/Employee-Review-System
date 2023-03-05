@@ -9,6 +9,7 @@
             src="https://kit.fontawesome.com/6994f09273.js"
             crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="stylemenu.css" />
     </head>
     <body>
         <div class="pseudo-container">
@@ -42,11 +43,12 @@
                     </div>
                     <div class="user-list">
                         <div class="user-card" onclick="userClicked()">
-                            <h5 class="user-name">Mayur Kakade</h5>
-                        </div>
-
-                        <div class="user-card" onclick="userClicked()">
-                            <h5 class="user-name">Omkar Kakade</h5>
+                            <h5 data-user-id="12@a3" class="user-name">
+                                Mayur Kakade
+                            </h5>
+                            <h6 data-user-id="12@a3" class="user-name">
+                                mskakade111@gmail.com
+                            </h6>
                         </div>
                     </div>
                 </div>
@@ -116,6 +118,26 @@
                                 value="Add Feedback" />
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="contextmenu">
+            <div class="list">
+                <div class="item">
+                    <i class="fa fa-pen"></i>
+                    Update
+                </div>
+                <div class="item">
+                    <i class="fa fa-plus"></i>
+                    Add Review
+                </div>
+                <div class="item">
+                    <i class="fa fa-trash"></i>
+                    Delete
+                </div>
+                <div class="item">
+                    <i class="fa fa-eye"></i>
+                    View Reviews
                 </div>
             </div>
         </div>
