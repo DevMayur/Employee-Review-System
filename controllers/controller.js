@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
+import Review from "../models/reviewModel.js";
 // Sign up a user
 //Rout - POST /api/signup
 
@@ -80,4 +81,55 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 });
 
-export { signUpUser, loginUser };
+const getAllEmployees = asyncHandler(async (req, res) => {
+    try {
+        const users = await User.find();
+        if (!users) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json({
+            users: users,
+            message: "Users list fetched successfully",
+        });
+    } catch (err) {
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+const addReview = asyncHandler(async (req, res) => {
+    const employeeId = req.params.id;
+    const { reviewText, senderId } = req.body;
+    try {
+        const reviewTo = await User.findById(employeeId);
+        const reviewBy = await User.findById(senderId);
+
+        // const review = new Review({
+        //     sender: reviewBy._id,
+        //     receiver: reviewTo._id,
+        //     review: reviewText,
+        // });
+
+        res.json({
+            params: reviewTo,
+            body: senderId,
+        });
+
+        // review.save();
+
+        // if (review) {
+        //     res.json({
+        //         message: "Review added successfully",
+        //     });
+        // } else {
+        //     res.json({
+        //         message: "There was a problem adding review",
+        //     });
+        // }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+export { signUpUser, loginUser, getAllEmployees, addReview };

@@ -1,0 +1,58 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Tilt Neon", cursive;
+} */
+
+.contextmenu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #dfdfdf;
+    width: 250px;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top left;
+}
+
+.contextmenu.active {
+    transform: scale(1);
+    transition: transform 250ms ease-in-out;
+}
+
+.contextmenu .list {
+    border-bottom: 1px solid #eee;
+}
+
+.contextmenu .list .item {
+    position: relative;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.contextmenu .list .item i {
+    display: inline-block;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.contextmenu .list .item:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    z-index: -1;
+    transition: all 150ms ease-in-out;
+}
+
+.contextmenu .list .item:hover:before {
+    width: 100%;
+}

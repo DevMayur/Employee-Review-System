@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Tilt Neon", cursive;
+}
+
+body {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pseudo-body {
+    box-shadow: 0 0 100px -30px #555;
+    border-radius: 24px;
+    background: url("/images/login-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #bbb;
+    display: block;
+}
+
+.container {
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 85vh;
+    padding: 32px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+form h3 {
+    color: #eee;
+    font-size: xxx-large;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.signinForm {
+    display: none;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.input-container input,
+.review-input {
+    color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 18px;
+    border-radius: 12px;
+    background: #333333;
+    border: 0px;
+    flex: 1;
+    padding-right: 64px;
+}
+
+.input-container input[type="submit"] {
+    cursor: pointer;
+    background: rgb(0, 102, 255);
+}
+
+.icon-input {
+    flex: 1;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.icon-input input {
+    width: 100%;
+    padding-right: 64px;
+}
+
+.span-input-container input:first-child {
+    margin-right: 20px;
+}
+
+.span-input-container div:first-child {
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .span-input-container input {
+        width: 100%;
+    }
+
+    .span-input-container div {
+        width: 100%;
+    }
+
+    .input-container {
+        width: 100%;
+        display: block;
+    }
+
+    .container {
+        height: 100vh;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .pseudo-body {
+        border-radius: 0;
+    }
+
+    .container {
+        border-radius: 0;
+    }
+}
+.input-icon {
+    position: absolute;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 18px;
+    right: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header-hint {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: #cacaca;
+    cursor: pointer;
+}
+.attr {
+    color: white;
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+}
+
+.attr i {
+    display: inline-block;
+}
+
+.error {
+    color: red;
+}
+
+.right-nav {
+    width: 50%;
+    position: relative;
+}
+
+.stick-right {
+    position: absolute;
+    width: 200px;
+    margin-right: 20px;
+    right: 10px;
+}
+
+.header,
+.reviews-list {
+    background-color: #122033;
+    padding: 12px;
+    border-radius: 18px;
+}
+
+.reviews-list {
+    height: 45vh;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.users {
+    height: 50vh;
+    width: 35%;
+    background-color: #002233;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 18px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.user-reviews,
+.feedback-on-review {
+    height: 50vh;
+    width: 60%;
+    background-color: #122033;
+    margin: 12px;
+    border-radius: 18px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 24px;
+    display: none;
+}
+
+.user-card {
+    background: #ccc;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+.user-card:hover {
+    cursor: pointer;
+    background-color: #ddddc8;
+}
+
+.user-name {
+    padding: 10px;
+}
+
+.user-header {
+    color: white;
+}
+
+.user-header-h5 {
+    color: #fff;
+}
+
+.review-input {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.review-card {
+    background-color: #cacaca;
+    border-radius: 12px;
+    width: 350px;
+    height: 30vh;
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.text-on-light {
+    color: #122033;
+    width: 340px;
+}
+
+.feedback-button {
+    padding: 8px;
+    margin: 8px;
+    width: 80%;
+    border-radius: 8px;
+    background-color: rgb(24, 5, 75);
+    color: #ccc;
+}
+
+.feedback-button:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    color: purple;
+}
+
+.user-header p {
+    width: 300px;
+    white-space: normal;
+}
+
+.feedback-status {
+    position: relative;
+}
+
+.input-icon-small {
+    position: absolute;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-right: 64px;
+    padding: 9px;
+    right: 0;
+    color: #fff;
+    cursor: pointer;
+}

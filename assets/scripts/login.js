@@ -71,6 +71,7 @@ submitButtonLogin.addEventListener("click", event => {
 });
 
 function handleUserLoggenIn(data) {
+    localStorage.setItem("userId", data.id);
     localStorage.setItem("email", data.email);
     localStorage.setItem("firstname", data.firstname);
     localStorage.setItem("lastname", data.lastname);
