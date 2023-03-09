@@ -4,6 +4,10 @@ import {
     loginUser,
     getAllEmployees,
     addReview,
+    getReviewsForUser,
+    assignReview,
+    deleteUser,
+    getAssignedReviews,
 } from "../controllers/controller.js";
 
 const router = express.Router();
@@ -27,6 +31,15 @@ router.route("/adminDashboard").get((req, res) => {
 
 router.route("/employees").get(getAllEmployees);
 
-router.route("/reviews/:id").post(addReview);
+router.route("/employees/:id").delete(deleteUser);
+
+router.route("/reviews/:id").post(addReview).get(getReviewsForUser);
+
+//getReviewsForUser
+router.route("/reviews").post(getReviewsForUser);
+
+router.route("/assignReviews").post(assignReview);
+
+router.route("/assignReviews/:id").get(getAssignedReviews);
 
 export default router;

@@ -15,6 +15,18 @@ const userSchema = mongoose.Schema({
         required: true,
         unique: true,
     },
+    assignedReviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
+    reviewsFromOthers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Review",
+        },
+    ],
     password: {
         type: String,
         required: true,
@@ -33,7 +45,6 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 //Encrypt password
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
-        console.log("i am here");
         next();
     }
     const salt = await bcrypt.genSalt(10);

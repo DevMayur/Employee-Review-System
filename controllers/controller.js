@@ -99,37 +99,116 @@ const getAllEmployees = asyncHandler(async (req, res) => {
 
 const addReview = asyncHandler(async (req, res) => {
     const employeeId = req.params.id;
-    const { reviewText, senderId } = req.body;
+    const { review, selfUserId } = req.body;
+
     try {
         const reviewTo = await User.findById(employeeId);
-        const reviewBy = await User.findById(senderId);
+        const reviewBy = await User.findById(selfUserId);
 
-        // const review = new Review({
-        //     sender: reviewBy._id,
-        //     receiver: reviewTo._id,
-        //     review: reviewText,
-        // });
-
-        res.json({
-            params: reviewTo,
-            body: senderId,
+        const reviewObject = await Review.create({
+            sender: reviewBy._id,
+            receiver: reviewTo._id,
+            review: review,
         });
 
-        // review.save();
-
-        // if (review) {
-        //     res.json({
-        //         message: "Review added successfully",
-        //     });
-        // } else {
-        //     res.json({
-        //         message: "There was a problem adding review",
-        //     });
-        // }
+        if (reviewObject) {
+            // Remove the selfUserId from the assignedReviews array of reviewTo
+            await User.findByIdAndUpdate(reviewBy._id, {
+                $pull: { assignedReviews: reviewTo._id },
+            });
+            res.json({
+                message: "Review added successfully",
+                reviewObject: reviewObject,
+            });
+        } else {
+            res.json({
+                message: "Review adding failed",
+            });
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Server Error" });
     }
 });
 
-export { signUpUser, loginUser, getAllEmployees, addReview };
+const getReviewsForUser = asyncHandler(async (req, res) => {
+    const employeeId = req.params.id;
+
+    try {
+        const reviews = await Review.find({
+            receiver: employeeId,
+        })
+            .populate("sender", ["firstname", "lastname"])
+            .populate("receiver", ["firstname", "lastname"]);
+        res.json(reviews);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+const assignReview = asyncHandler(async (req, res) => {
+    const employeeId = req.params.id;
+    console.log(req.body);
+    const reviewTo = await User.findById(req.body.reviewTo);
+    const reviewBy = await User.findById(req.body.reviewBy);
+
+    try {
+        // Update the assignedReviews field of the employee
+        console.log(reviewTo);
+        reviewBy.assignedReviews.push(reviewTo);
+        await reviewBy.save();
+
+        res.json({
+            reviewBy: reviewBy,
+            message: "review assigned successfully",
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+const getAssignedReviews = asyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+    const user = await User.findById(userId).populate("assignedReviews");
+    res.json({
+        usersAssignedReview: user.assignedReviews,
+        message: "success",
+    });
+});
+
+const deleteUser = asyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if (!user) {
+        res.status(404);
+        throw new Error("User not found");
+    }
+
+    // Delete all reviews where user is either the sender or receiver
+    await Review.deleteMany({
+        $or: [{ sender: userId }, { receiver: userId }],
+    });
+
+    // Remove user from assignedReviews array of all users who have user ID in their assignedReviews
+    await User.updateMany(
+        { assignedReviews: userId },
+        { $pull: { assignedReviews: userId } }
+    );
+
+    // Remove the user from the database
+    await User.findByIdAndRemove(userId);
+
+    res.json({ message: "User removed" });
+});
+
+export {
+    signUpUser,
+    loginUser,
+    getAllEmployees,
+    addReview,
+    getReviewsForUser,
+    assignReview,
+    deleteUser,
+    getAssignedReviews,
+};
