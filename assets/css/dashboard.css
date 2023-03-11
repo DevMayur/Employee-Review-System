@@ -47,7 +47,8 @@ form h3 {
 }
 
 .input-container input,
-.review-input {
+.review-input,
+.update-input {
     color: white;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -192,7 +193,8 @@ a:hover {
 .user-reviews,
 .feedback-on-review,
 .reviews-list,
-.assign-review-div {
+.assign-review-div,
+.update-user {
     height: 50vh;
     width: 60%;
     background-color: #122033;
@@ -231,7 +233,8 @@ a:hover {
     color: #fff;
 }
 
-.review-input {
+.review-input,
+.update-input {
     min-width: 100%;
     max-width: 100%;
     max-height: 150px;
@@ -293,4 +296,16 @@ a:hover {
     display: flex;
     overflow-x: auto;
     width: 90vw;
+}
+
+.user-list,
+.assign-review-div {
+    max-height: 50vh;
+    overflow-y: auto;
+    height: 90%;
+}
+
+.update-input {
+    max-height: 50px;
+    min-height: 50px;
 }

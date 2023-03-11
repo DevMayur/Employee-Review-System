@@ -202,6 +202,129 @@ const deleteUser = asyncHandler(async (req, res) => {
     res.json({ message: "User removed" });
 });
 
+const createUserPage = asyncHandler(async (req, res) => {
+    res.render("createUser");
+});
+
+const createUser = asyncHandler(async (req, res) => {
+    const { firstname, lastname, email, password, confirmPassword, role } =
+        req.body;
+
+    if (password != confirmPassword) {
+        return res.json({
+            message: `Passwords do not match`,
+            success: false,
+        });
+    }
+
+    //see if user already exist
+    const userEmailExist = await User.findOne({ email: email });
+
+    if (userEmailExist) {
+        return res.json({
+            message: `User already exist with provided email ${email}`,
+            success: false,
+        });
+    }
+
+    const user = await User.create({
+        firstname,
+        lastname,
+        email,
+        password,
+        role,
+    });
+
+    if (user) {
+        res.json({
+            id: user.id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            role: user.role,
+            token: generateToken(user.id),
+            success: true,
+        });
+    } else {
+        return res.json({
+            message: `Cannot create user`,
+            success: false,
+        });
+    }
+});
+
+const makeAdmin = asyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    const body = req.body;
+    console.log(userId);
+    await User.findByIdAndUpdate(userId, {
+        role: body.role,
+    });
+    res.json({
+        message: "success",
+    });
+});
+
+const searchUsers = asyncHandler(async (req, res) => {
+    const searchTerm = req.params.query;
+
+    const users = await User.find({
+        $or: [
+            { firstname: { $regex: searchTerm, $options: "i" } },
+            { lastname: { $regex: searchTerm, $options: "i" } },
+            { email: { $regex: searchTerm, $options: "i" } },
+        ],
+    });
+
+    res.json({
+        users: users,
+        message: "Users list fetched successfully",
+    });
+});
+
+const addFeedback = asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const feedback = req.body.feedback;
+    console.log(req.body);
+    const review = await Review.findByIdAndUpdate(id, {
+        feedback: feedback,
+    });
+    res.json({
+        message: "feedback added successfully",
+        review: review,
+    });
+});
+
+const updateUser = asyncHandler(async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const updates = req.body;
+
+        const updatedUser = await User.findByIdAndUpdate(userId, updates);
+
+        res.json(updatedUser);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
+const getUser = asyncHandler(async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(user);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
 export {
     signUpUser,
     loginUser,
@@ -211,4 +334,11 @@ export {
     assignReview,
     deleteUser,
     getAssignedReviews,
+    createUserPage,
+    createUser,
+    makeAdmin,
+    searchUsers,
+    addFeedback,
+    updateUser,
+    getUser,
 };

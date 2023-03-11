@@ -16,7 +16,7 @@
             <nav class="header">
                 <div class="input-container">
                     <div class="icon-input">
-                        <i class="fa fa-search input-icon"></i>
+                        <i class="fa fa-search input-icon" id="search-icon"></i>
                         <input
                             type="text"
                             name="search"
@@ -24,24 +24,26 @@
                             autocomplete="nope" />
                     </div>
 
-                    <!-- <div class="right-nav">
+                    <div class="right-nav">
                         <div class="input-container stick-right">
-                            <i class="fa fa-bars input-icon"></i>
+                            <i class="fa fa-close input-icon"></i>
                             <input
                                 type="submit"
-                                name="create-user"
-                                onclick="showReviewsAssigned()"
-                                value="Assigned Reviews to me" />
+                                name="logout-user"
+                                id="btn-logout"
+                                value="Logout" />
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="right-nav">
                         <div class="input-container stick-right">
                             <i class="fa fa-plus input-icon"></i>
-                            <input
-                                type="submit"
-                                name="create-user"
-                                value="CREATE EMPLOYEES" />
+                            <a href="/api/createUser">
+                                <input
+                                    type="submit"
+                                    name="create-user"
+                                    value="CREATE EMPLOYEES"
+                            /></a>
                         </div>
                     </div>
                 </div>
@@ -98,14 +100,53 @@
                         class="review-input"
                         type="text"
                         name="add-review-textarea"
-                        id="review"></textarea>
+                        id="feedback"></textarea>
 
                     <div id="submit-feedback-button" class="input-container">
                         <i class="fa fa-plus input-icon"></i>
                         <input
                             type="submit"
-                            name="add-review"
+                            name="add-feedback-btn"
                             value="ADD FEEDBACK" />
+                    </div>
+                </div>
+
+                <div id="update-user" class="update-user">
+                    <div class="user-header">
+                        <h5
+                            class="user-header-h5 user-name"
+                            id="feedback-title">
+                            Update User
+                        </h5>
+                    </div>
+                    <input
+                        class="update-input"
+                        type="text"
+                        placeholder="First Name"
+                        name="first-name"
+                        id="update-user-first-name" />
+
+                    <input
+                        class="update-input"
+                        type="text"
+                        placeholder="Last Name"
+                        name="last-name"
+                        id="update-user-last-name" />
+
+                    <input
+                        class="update-input"
+                        type="text"
+                        placeholder="Email"
+                        name="email"
+                        id="update-user-email" />
+
+                    <div id="update-user-button" class="input-container">
+                        <i class="fa fa-send input-icon"></i>
+                        <input
+                            type="submit"
+                            name="add-feedback-btn"
+                            id="update-user-button"
+                            value="Update" />
                     </div>
                 </div>
 
@@ -150,6 +191,10 @@
                 <div id="assign-review" class="item">
                     <i class="fa fa-bars"></i>
                     Assign Reviewer
+                </div>
+                <div id="make-admin" class="item">
+                    <i class="fa fa-lock"></i>
+                    Make admin
                 </div>
             </div>
         </div>

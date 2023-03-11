@@ -4,9 +4,129 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dashboard</title>
+        <title>Admin</title>
+        <script
+            src="https://kit.fontawesome.com/6994f09273.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/dashboard.css" />
+        <link rel="stylesheet" href="/css/stylemenu.css" />
     </head>
     <body>
-        <h1>Dashboard is loaded</h1>
+        <div class="pseudo-container">
+            <nav class="header">
+                <div class="input-container">
+                    <div class="icon-input">
+                        <i class="fa fa-search input-icon" id="search-icon"></i>
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Search..."
+                            autocomplete="nope" />
+                    </div>
+
+                    <div class="right-nav">
+                        <div class="input-container stick-right">
+                            <i class="fa fa-close input-icon"></i>
+                            <input
+                                type="submit"
+                                name="logout-user"
+                                id="btn-logout"
+                                value="Logout" />
+                        </div>
+                    </div>
+
+                    <div class="right-nav"></div>
+                </div>
+            </nav>
+            <div class="input-div">
+                <div class="users">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">Employees</h5>
+                    </div>
+                    <div class="user-list"></div>
+                </div>
+
+                <div id="assign-review-div" class="assign-review-div">
+                    <div class="user-header">
+                        <h5
+                            class="user-header-h5 user-name"
+                            id="assign-review-title">
+                            Assign Review
+                        </h5>
+                    </div>
+                    <div class="user-list-assign"></div>
+                </div>
+
+                <div id="user-reviews" class="user-reviews">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">Add Review</h5>
+                    </div>
+                    <textarea
+                        class="review-input"
+                        type="text"
+                        name="add-review-textarea"
+                        id="review-input"></textarea>
+
+                    <div class="input-container">
+                        <i class="fa fa-plus input-icon"></i>
+                        <input
+                            type="submit"
+                            name="add-review"
+                            value="ADD REVIEW"
+                            id="submit-review" />
+                    </div>
+                </div>
+
+                <div id="feedback-input" class="feedback-on-review">
+                    <div class="user-header">
+                        <h5
+                            class="user-header-h5 user-name"
+                            id="feedback-title">
+                            Add Feedback
+                        </h5>
+                    </div>
+                    <textarea
+                        class="review-input"
+                        type="text"
+                        name="add-review-textarea"
+                        id="feedback"></textarea>
+
+                    <div id="submit-feedback-button" class="input-container">
+                        <i class="fa fa-plus input-icon"></i>
+                        <input
+                            type="submit"
+                            name="add-feedback-btn"
+                            value="ADD FEEDBACK" />
+                    </div>
+                </div>
+
+                <div id="view-reviews-div" class="show-reviews">
+                    <div class="user-header">
+                        <h5 class="user-header-h5 user-name">View reviews</h5>
+                        <div class="reviews-list-div"></div>
+                    </div>
+                </div>
+
+                <div id="assigned-review-div" class="assigned-review-div">
+                    <div class="user-header">
+                        <h5
+                            class="user-header-h5 user-name"
+                            id="assign-review-title">
+                            Reviews Assigned to me
+                        </h5>
+                    </div>
+                    <div class="user-list-assign"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contextmenu">
+            <div class="list">
+                <div id="view-reviews" class="item">
+                    <i class="fa fa-eye"></i>
+                    View Reviews
+                </div>
+            </div>
+        </div>
+        <script src="/scripts/userDashboard.js"></script>
     </body>
 </html>
