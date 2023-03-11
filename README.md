@@ -4,15 +4,15 @@ This is a simple bug tracking application built with Node js, express js and EJS
 
 ## Features
 
-##Admin view
-###Add/remove/update/view employees
-###Add/update/view performance reviews
-###Assign employees to participate in another employee's performance review
-##Employee view
+###Admin view
+1. Add/remove/update/view employees
+2. Add/update/view performance reviews
+3. Assign employees to participate in another employee's performance review
+4. Employee view
 ###List of performance review requiring feedback
-###Submit feedback
-###Make 1 login for admin and employee
-###An employee can register, only admin can make an employee an admin
+1. Submit feedback
+2. Make 1 login for admin and employee
+3. An employee can register, only admin can make an employee an admin
 
 
 ## Installation
