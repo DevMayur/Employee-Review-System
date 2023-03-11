@@ -26,3 +26,6 @@ This is a simple bug tracking application built with Node js, express js and EJS
 
 Project is developed for skill test in coding ninjas.
 
+##Test admin credentials
+email : mskakade111@gmail.com
+password : 1234567890
